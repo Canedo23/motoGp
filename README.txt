@@ -1,3 +1,4 @@
+-Enunciado-
 ejercicio 1- Crear los entities de las 3 tablas.
 ejercicio 2- Establecer las relaciones entre las tablas usando spring data.
 ejercicio 3- Crear los crrud para los 3 entities (cuando veamos un objeto piloto 						  queremos ver en que carreras ha 						  participado y la información de los 						  circuitos en los que corrió).
@@ -6,7 +7,25 @@ ejercicio 5- Crea un método que nos devuelva que pilotos hicieron pódium y en 
 ejercicio 6- Crea un método que nos devuelva que piloto ha quedado mas veces campeón.
 ejercicio 7- Crea un endpoint que sea /circuitos/nombreCircuito (que funcione con el nombre del circuito).
 
+-Properties-
+spring.application.name=motogp
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/SenhorDeLosAnillos?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=
+spring.output.ansi.enabled=always
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.defer-datasource-initialization=true
+spring.sql.init.mode=always
+spring.sql.init.encoding=UTF-8
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.show-sql=true
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+spring.jpa.open-in-view=false
 
+
+-Inserts-
 INSERT INTO circuito (id, nombre, localidad) VALUES
 (1, 'Losail', 'Catar'),
 (2, 'Termas de Río Hondo', 'Argentina'),
@@ -70,7 +89,7 @@ INSERT INTO carreras (id, id_piloto, id_circuito, temporada, posición) VALUES
 
 
 
-
+-Tabla-
 
 piloto:
 	-id
