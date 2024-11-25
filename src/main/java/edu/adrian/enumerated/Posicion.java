@@ -2,18 +2,18 @@ package edu.adrian.enumerated;
 
 public enum Posicion {
 
-    PRIMER, 
+    PRIMERO, 
     SEGUNDO, 
-    TERCER, 
+    TERCERO, 
     CUARTO, 
     QUINTO, 
     SEXTO, 
-    SÉPTIMO, 
+    SEPTIMO, 
     OCTAVO, 
     NOVENO, 
-    DÉCIMO, 
-    UNDÉCIMO, 
-    DUODÉCIMO, 
+    DECIMO, 
+    UNDECIMO, 
+    DUODECIMO, 
     DECIMOTERCERO, 
     DECIMOCUARTO, 
     DECIMOQUINTO, 
@@ -22,8 +22,8 @@ public enum Posicion {
     DECIMOCTAVO, 
     DECIMONOVENO, 
     VIGESIMO, 
-    VIGESIMOPRIMERO, 
-    VIGESIMOSEGUNDO, 
-    VIGESIMOTERCERO
+    VIGESIMO_PRIMERO, 
+    VIGESIMO_SEGUNDO, 
+    VIGESIMO_TERCERO
 
 }

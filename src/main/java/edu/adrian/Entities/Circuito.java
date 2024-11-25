@@ -1,14 +1,19 @@
 package edu.adrian.Entities;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "circuito")
+@Table(name = "circuitos")
 public class Circuito {
 
 @Id
@@ -18,22 +23,26 @@ private Long id;
 private String nombre;
 @Column(nullable = false, length = 100)
 private String localidad;
+@OneToMany(mappedBy = "circuito", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+private List<Carrera> listaCarreras;
 
 
 public Circuito() {
 }
 
 
-public Circuito(String nombre, String localidad) {
+public Circuito(String nombre, String localidad, List<Carrera> listaCarreras) {
     this.nombre = nombre;
     this.localidad = localidad;
+    this.listaCarreras = listaCarreras;
 }
 
 
-public Circuito(Long id, String nombre, String localidad) {
+public Circuito(Long id, String nombre, String localidad, List<Carrera> listaCarreras) {
     this.id = id;
     this.nombre = nombre;
     this.localidad = localidad;
+    this.listaCarreras = listaCarreras;
 }
 
 
@@ -67,11 +76,24 @@ public void setLocalidad(String localidad) {
 }
 
 
+public List<Carrera> getListaCarreras() {
+    return listaCarreras;
+}
+
+
+public void setListaCarreras(List<Carrera> listaCarreras) {
+    this.listaCarreras = listaCarreras;
+}
+
+
 @Override
 public String toString() {
-    return "Circuito [id=" + id + ", nombre=" + nombre + ", localidad=" + localidad + "]";
+    return "Circuito [id=" + id + ", nombre=" + nombre + ", localidad=" + localidad + ", listaCarreras=" + listaCarreras
+            + "]";
 }
 
 
 
+
 }
+

@@ -5,9 +5,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,10 +20,12 @@ public class Carrera {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
-@Column(nullable = false)
-private Long idPiloto;
-@Column(nullable = false)
-private Long idCircuito;
+@ManyToOne(optional = true, targetEntity = Piloto.class, fetch = FetchType.EAGER)
+@JoinColumn(nullable = false)
+private Piloto piloto;
+@ManyToOne(optional = true, targetEntity = Circuito.class, fetch = FetchType.EAGER)
+@JoinColumn(nullable = false)
+private Circuito circuito;
 @Column(nullable = false, length = 8)
 private String temporada;
 @Enumerated(EnumType.STRING)
@@ -30,19 +35,65 @@ private Posicion posicion;
 public Carrera() {
 }
 
-public Carrera(Long idPiloto, Long idCircuito, String temporada, Posicion posicion) {
-    this.idPiloto = idPiloto;
-    this.idCircuito = idCircuito;
+public Carrera(Piloto piloto, Circuito circuito, String temporada, Posicion posicion) {
+    this.piloto = piloto;
+    this.circuito = circuito;
     this.temporada = temporada;
     this.posicion = posicion;
 }
 
-public Carrera(Long id, Long idPiloto, Long idCircuito, String temporada, Posicion posicion) {
+public Carrera(Long id, Piloto piloto, Circuito circuito, String temporada, Posicion posicion) {
     this.id = id;
-    this.idPiloto = idPiloto;
-    this.idCircuito = idCircuito;
+    this.piloto = piloto;
+    this.circuito = circuito;
     this.temporada = temporada;
     this.posicion = posicion;
+}
+
+public Long getId() {
+    return id;
+}
+
+public void setId(Long id) {
+    this.id = id;
+}
+
+public Piloto getPiloto() {
+    return piloto;
+}
+
+public void setPiloto(Piloto piloto) {
+    this.piloto = piloto;
+}
+
+public Circuito getCircuito() {
+    return circuito;
+}
+
+public void setCircuito(Circuito circuito) {
+    this.circuito = circuito;
+}
+
+public String getTemporada() {
+    return temporada;
+}
+
+public void setTemporada(String temporada) {
+    this.temporada = temporada;
+}
+
+public Posicion getPosicion() {
+    return posicion;
+}
+
+public void setPosicion(Posicion posicion) {
+    this.posicion = posicion;
+}
+
+@Override
+public String toString() {
+    return "Carrera [id=" + id + ", piloto=" + piloto + ", circuito=" + circuito + ", temporada=" + temporada
+            + ", posicion=" + posicion + "]";
 }
 
 
