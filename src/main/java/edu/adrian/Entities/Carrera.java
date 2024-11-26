@@ -1,5 +1,7 @@
 package edu.adrian.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.adrian.enumerated.Posicion;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,9 +22,11 @@ public class Carrera {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
+@JsonIgnore
 @ManyToOne(optional = true, targetEntity = Piloto.class, fetch = FetchType.EAGER)
 @JoinColumn(nullable = false)
 private Piloto piloto;
+@JsonIgnore
 @ManyToOne(optional = true, targetEntity = Circuito.class, fetch = FetchType.EAGER)
 @JoinColumn(nullable = false)
 private Circuito circuito;

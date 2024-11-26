@@ -2,6 +2,8 @@ package edu.adrian.Entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,6 +25,7 @@ private Long id;
 private String nombre;
 @Column(nullable = false, length = 100)
 private String localidad;
+@JsonIgnore
 @OneToMany(mappedBy = "circuito", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 private List<Carrera> listaCarreras;
 

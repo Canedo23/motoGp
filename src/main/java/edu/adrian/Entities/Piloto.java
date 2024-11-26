@@ -2,6 +2,8 @@ package edu.adrian.Entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.adrian.enumerated.Conduccion;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,6 +29,7 @@ private String nombre;
 @Enumerated(EnumType.STRING)
 @Column(nullable = false)
 private Conduccion conduccion;
+@JsonIgnore
 @OneToMany(mappedBy = "piloto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 private List<Carrera> listaCarreras;
 
