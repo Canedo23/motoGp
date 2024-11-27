@@ -121,3 +121,9 @@ circuito:
 	-id
 	-nombre
 	-localidad
+
+
+- CREAR DTOs para controlar la información que saldrá del sistema:
+paso 1: crear una clase DTO por cada entity (excluyendo ids)
+paso 2: cambiar lo que devuelven los métodos de los controladores (solo deben devolver DTOs)
+paso 3: en el servicio, cuando recuperamos objetos de la base de datos, hay que convertirlos a objetos DTO, por ejemplo, si buscamos una carrera por su id, una vez encontrada, tenemos que convertir ese objeto Carrera en un objeto CarreraDTO y pasárselo al controller.

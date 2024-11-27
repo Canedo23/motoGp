@@ -26,7 +26,6 @@ private Long id;
 @ManyToOne(optional = true, targetEntity = Piloto.class, fetch = FetchType.EAGER)
 @JoinColumn(nullable = false)
 private Piloto piloto;
-@JsonIgnore
 @ManyToOne(optional = true, targetEntity = Circuito.class, fetch = FetchType.EAGER)
 @JoinColumn(nullable = false)
 private Circuito circuito;
