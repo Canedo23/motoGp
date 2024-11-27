@@ -80,11 +80,22 @@ public void setConduccion(Conduccion conduccion) {
     this.conduccion = conduccion;
 }
 
+public List<Carrera> getListaCarreras() {
+    return listaCarreras;
+}
+
+
+public void setListaCarreras(List<Carrera> listaCarreras) {
+    this.listaCarreras = listaCarreras;
+}
 
 @Override
 public String toString() {
     return "Piloto [id=" + id + ", nombre=" + nombre + ", conduccion=" + conduccion + "]";
 }
+
+
+
 
 
 

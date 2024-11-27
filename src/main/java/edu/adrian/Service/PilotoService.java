@@ -24,7 +24,12 @@ public List<Piloto> getListaPilotos() {
 public PilotoDTO getPilotoId(Integer id) {
     Optional<Piloto> op = pilotoRepository.findById((long) id);
     if (op.isPresent()) {
-        PilotoDTO pidto = new PilotoDTO();         
+        PilotoDTO pidto = new PilotoDTO();
+        Piloto pi = op.get();
+        pidto.setNombre(pi.getNombre());
+        pidto.setConduccion(pi.getConduccion());
+        pidto.setListaCarreras(pi.getListaCarreras());
+        return pidto;
     }
     return null;
 }
