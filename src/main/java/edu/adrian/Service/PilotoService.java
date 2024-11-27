@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.adrian.DTO.PilotoDTO;
 import edu.adrian.Entities.Piloto;
 import edu.adrian.Repository.IPilotoRepository;
 
@@ -20,10 +21,10 @@ public List<Piloto> getListaPilotos() {
 }
 
 @Override
-public Piloto getPilotoId(Integer id) {
+public PilotoDTO getPilotoId(Integer id) {
     Optional<Piloto> op = pilotoRepository.findById((long) id);
     if (op.isPresent()) {
-        return op.get();
+        PilotoDTO pidto = new PilotoDTO();         
     }
     return null;
 }

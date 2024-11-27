@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.adrian.DTO.PilotoDTO;
 import edu.adrian.Entities.Piloto;
 import edu.adrian.Service.IPilotoService;
 
@@ -32,7 +33,7 @@ public List<Piloto> getListaPilotos() {
 }
 
 @GetMapping("/{id}")
-public Piloto getPilotoId(@PathVariable("id") Integer idUrl) {
+public PilotoDTO getPilotoId(@PathVariable("id") Integer idUrl) {
     return pilotoService.getPilotoId(idUrl);
 }
 
