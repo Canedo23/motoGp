@@ -8,10 +8,10 @@ import edu.adrian.Entities.Piloto;
 
 public interface IPilotoService {
 
-public List<Piloto> getListaPilotos();
+public List<PilotoDTO> getListaPilotos();
 public PilotoDTO getPilotoId(Integer id);
 public Piloto guardarPiloto(Piloto pi);
-public Piloto actualizarPiloto(Piloto pi);
+public PilotoDTO actualizarPiloto(Piloto pi);
 public void eliminarPilotoId(Integer id);
 
 }

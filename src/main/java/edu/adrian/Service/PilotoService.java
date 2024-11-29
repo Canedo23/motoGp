@@ -1,5 +1,6 @@
 package edu.adrian.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,8 +17,17 @@ public class PilotoService implements IPilotoService{
 IPilotoRepository pilotoRepository;
 
 @Override
-public List<Piloto> getListaPilotos() {
-    return pilotoRepository.findAll();
+public List<PilotoDTO> getListaPilotos() {
+    List<Piloto> pilotos = pilotoRepository.findAll();
+    List<PilotoDTO> pilotosDTO = new ArrayList<>();
+    for (Piloto pi : pilotos) {
+        PilotoDTO pidto = new PilotoDTO();
+        pidto.setNombre(pi.getNombre());
+        pidto.setConduccion(pi.getConduccion());
+        pidto.setListaCarreras(pi.getListaCarreras());
+        pilotosDTO.add(pidto);
+    }
+    return pilotosDTO;
 }
 
 @Override
@@ -40,8 +50,13 @@ public Piloto guardarPiloto(Piloto pi) {
 }
 
 @Override
-public Piloto actualizarPiloto(Piloto pi) {
-    return pilotoRepository.save(pi);
+public PilotoDTO actualizarPiloto(Piloto pi) {
+    Piloto piDB = pilotoRepository.save(pi);
+    PilotoDTO piDTO = new PilotoDTO();
+    piDTO.setNombre(piDB.getNombre());
+    piDTO.setConduccion(piDB.getConduccion());
+    piDTO.setListaCarreras(piDB.getListaCarreras());
+    return piDTO;
 }
 
 @Override

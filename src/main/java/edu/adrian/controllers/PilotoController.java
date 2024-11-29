@@ -28,7 +28,7 @@ public class PilotoController {
 IPilotoService pilotoService;
 
 @GetMapping("/all")
-public List<Piloto> getListaPilotos() {
+public List<PilotoDTO> getListaPilotos() {
     return pilotoService.getListaPilotos();
 }
 
@@ -43,7 +43,7 @@ public Piloto guardarPiloto(@RequestBody Piloto pi) {
 }
 
 @PutMapping("/actualizar")
-public Piloto actualizarPiloto(@RequestBody Piloto pi) {
+public PilotoDTO actualizarPiloto(@RequestBody Piloto pi) {
     return pilotoService.actualizarPiloto(pi);
 }
 

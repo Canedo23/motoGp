@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.adrian.DTO.CircuitoDTO;
 import edu.adrian.Entities.Circuito;
 import edu.adrian.Service.ICircuitoService;
 
@@ -27,12 +28,12 @@ public class CircuitoController {
 ICircuitoService circuitoService;
 
 @GetMapping("/all")
-public List<Circuito> getCircuitos() {
+public List<CircuitoDTO> getCircuitos() {
     return circuitoService.getCircuitos();
 }
 
 @GetMapping("/{id}")
-public Circuito getCircuitoId(@PathVariable("id") Integer id) {
+public CircuitoDTO getCircuitoId(@PathVariable("id") Integer id) {
     return circuitoService.getCircuitoId(id);
 }
 
