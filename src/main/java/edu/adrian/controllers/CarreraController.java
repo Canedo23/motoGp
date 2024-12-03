@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.adrian.DTO.CarreraDTO;
 import edu.adrian.Entities.Carrera;
 import edu.adrian.Service.ICarreraService;
 
@@ -25,12 +26,12 @@ public class CarreraController {
 ICarreraService carreraService;
 
 @GetMapping("/all")
-public List<Carrera> getCarreras() {
+public List<CarreraDTO> getCarreras() {
     return carreraService.getCarreras();
 }
 
 @GetMapping("/{id}")
-public Carrera getCarreraId(@PathVariable("id") Integer id) {
+public CarreraDTO getCarreraId(@PathVariable("id") Integer id) {
     return carreraService.getCarreraId(id);
 }
 
@@ -40,7 +41,7 @@ public Carrera guardarCarrera(@RequestBody Carrera ca) {
 }
 
 @PutMapping("/actualizar")
-public Carrera actualizarCarrera(@RequestBody Carrera ca) {
+public CarreraDTO actualizarCarrera(@RequestBody Carrera ca) {
     return carreraService.actualizarCarrera(ca);
 }
 

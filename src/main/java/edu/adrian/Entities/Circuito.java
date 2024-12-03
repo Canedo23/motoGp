@@ -91,8 +91,7 @@ public void setListaCarreras(List<Carrera> listaCarreras) {
 
 @Override
 public String toString() {
-    return "Circuito [id=" + id + ", nombre=" + nombre + ", localidad=" + localidad + ", listaCarreras=" + listaCarreras
-            + "]";
+    return "Circuito [id=" + id + ", nombre=" + nombre + ", localidad=" + localidad + "]";
 }
 
 

@@ -22,9 +22,9 @@ public List<CircuitoDTO> getCircuitos() {
     List<CircuitoDTO> circuitosDto = new ArrayList();
     for (Circuito ci : circuitos) {
         CircuitoDTO ciDTO = new CircuitoDTO();
-        ciDTO.setNombre(ciDTO.getNombre());
-        ciDTO.setLocalidad(ciDTO.getLocalidad());
-        ciDTO.setListaCarreras(ciDTO.getListaCarreras());
+        ciDTO.setNombre(ci.getNombre());
+        ciDTO.setLocalidad(ci.getLocalidad());
+        ciDTO.setListaCarreras(ci.getListaCarreras());
         circuitosDto.add(ciDTO);
     }
     return circuitosDto;

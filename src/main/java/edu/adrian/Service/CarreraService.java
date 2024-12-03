@@ -1,11 +1,13 @@
 package edu.adrian.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.adrian.DTO.CarreraDTO;
 import edu.adrian.Entities.Carrera;
 import edu.adrian.Repository.ICarreraRepository;
 
@@ -15,16 +17,33 @@ public class CarreraService implements ICarreraService{
 ICarreraRepository carreraRepository;
 
 	@Override
-	public List<Carrera> getCarreras() {
-		return carreraRepository.findAll();
+	public List<CarreraDTO> getCarreras() {
+		List<Carrera> carreras = carreraRepository.findAll();
+		List<CarreraDTO> carrerasDTO = new ArrayList<>();
+		for (Carrera car : carreras) {
+			CarreraDTO caDTO = new CarreraDTO();
+			caDTO.setCircuito(car.getCircuito());
+			caDTO.setPiloto(car.getPiloto());
+			caDTO.setPosicion(car.getPosicion());
+			caDTO.setTemporada(car.getTemporada());
+			carrerasDTO.add(caDTO);
+			//System.out.println(caDTO);
+		}
+		return carrerasDTO;
 	}
 
 	@Override
-	public Carrera getCarreraId(Integer id) {
+	public CarreraDTO getCarreraId(Integer id) {
         Optional<Carrera> op = carreraRepository.findById((long)id);
         if (op.isPresent()) {
-            return op.get();
-        }
+			Carrera car = op.get();
+			CarreraDTO caDTO = new CarreraDTO();
+			caDTO.setCircuito(car.getCircuito());
+			caDTO.setPiloto(car.getPiloto());
+			caDTO.setPosicion(car.getPosicion());
+			caDTO.setTemporada(car.getTemporada());
+			return caDTO;
+		}
         System.out.println("No se encontro carrera con ese id.");
         return null;        
 	}
@@ -35,8 +54,9 @@ ICarreraRepository carreraRepository;
 	}
 
 	@Override
-	public Carrera actualizarCarrera(Carrera ca) {
-        return carreraRepository.save(ca);
+	public CarreraDTO actualizarCarrera(Carrera ca) {
+		Carrera carr = carreraRepository.save(ca);
+		return new CarreraDTO(carr.getPiloto(), carr.getCircuito(), carr.getTemporada(), carr.getPosicion());
 	}
 
 	@Override

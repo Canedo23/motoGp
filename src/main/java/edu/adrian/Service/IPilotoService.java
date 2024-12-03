@@ -10,7 +10,7 @@ public interface IPilotoService {
 
 public List<PilotoDTO> getListaPilotos();
 public PilotoDTO getPilotoId(Integer id);
-public Piloto guardarPiloto(Piloto pi);
+public PilotoDTO guardarPiloto(Piloto pi);
 public PilotoDTO actualizarPiloto(Piloto pi);
 public void eliminarPilotoId(Integer id);
 

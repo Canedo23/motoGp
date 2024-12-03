@@ -45,8 +45,13 @@ public PilotoDTO getPilotoId(Integer id) {
 }
 
 @Override
-public Piloto guardarPiloto(Piloto pi) {
-    return pilotoRepository.save(pi);
+public PilotoDTO guardarPiloto(Piloto pi) {
+    Piloto piDB = pilotoRepository.save(pi);
+    PilotoDTO piDTO = new PilotoDTO();
+    piDTO.setNombre(piDB.getNombre());
+    piDTO.setConduccion(piDB.getConduccion());
+    piDTO.setListaCarreras(piDB.getListaCarreras());
+    return piDTO;
 }
 
 @Override
