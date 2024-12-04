@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.adrian.DTO.EstadisticasPilotoDTO;
 import edu.adrian.DTO.PilotoDTO;
 import edu.adrian.Entities.Piloto;
 import edu.adrian.Repository.IPilotoRepository;
@@ -72,6 +73,11 @@ public void eliminarPilotoId(Integer id) {
         System.out.println("Piloto con el id" +id + "borrado");
     }
     System.out.println("No se ha encontrado el piloto con el id " +id);
+}
+
+@Override
+public EstadisticasPilotoDTO getEstadisticasPiloto(Integer idEp) {
+    
 }
 
 

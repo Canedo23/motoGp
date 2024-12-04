@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.adrian.DTO.EstadisticasPilotoDTO;
 import edu.adrian.DTO.PilotoDTO;
 import edu.adrian.Entities.Piloto;
 import edu.adrian.Service.IPilotoService;
@@ -29,6 +30,11 @@ import org.springframework.http.HttpStatus;
 public class PilotoController {
 @Autowired 
 IPilotoService pilotoService;
+
+@GetMapping("/numeroCarrerasPiloto/{id}")
+public ResponseEntity<EstadisticasPilotoDTO> getEstadisticasPiloto(@PathVariable("id") Integer idEp) {
+    return ;
+}
 
 @GetMapping("/all")
 public ResponseEntity<List<PilotoDTO>> getListaPilotos() {

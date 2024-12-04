@@ -26,7 +26,7 @@ private String nombre;
 @Column(nullable = false, length = 100)
 private String localidad;
 @JsonIgnore
-@OneToMany(mappedBy = "circuito", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+@OneToMany(mappedBy = "circuito", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 private List<Carrera> listaCarreras;
 
 
