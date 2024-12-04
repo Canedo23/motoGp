@@ -1,5 +1,8 @@
 package edu.adrian.Entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import edu.adrian.enumerated.Posicion;
@@ -23,6 +26,7 @@ public class Carrera {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 @JsonIgnore
+@OnDelete(action = OnDeleteAction.CASCADE)
 @ManyToOne(optional = true, targetEntity = Piloto.class, fetch = FetchType.EAGER)
 @JoinColumn(nullable = false)
 private Piloto piloto;
@@ -93,11 +97,7 @@ public void setPosicion(Posicion posicion) {
     this.posicion = posicion;
 }
 
-@Override
-public String toString() {
-    return "Carrera [id=" + id + ", piloto=" + piloto + ", circuito=" + circuito + ", temporada=" + temporada
-            + ", posicion=" + posicion + "]";
-}
+
 
 
 

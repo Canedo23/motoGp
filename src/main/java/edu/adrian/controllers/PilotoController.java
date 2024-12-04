@@ -31,30 +31,31 @@ public class PilotoController {
 IPilotoService pilotoService;
 
 @GetMapping("/all")
-public List<PilotoDTO> getListaPilotos() {
-    return pilotoService.getListaPilotos();
+public ResponseEntity<List<PilotoDTO>> getListaPilotos() {
+    return ResponseEntity.status(HttpStatus.FOUND).body(pilotoService.getListaPilotos());
 }
 
 @GetMapping("/{id}")
-public PilotoDTO getPilotoId(@PathVariable("id") Integer idUrl) {
-    return pilotoService.getPilotoId(idUrl);
+public ResponseEntity<PilotoDTO> getPilotoId(@PathVariable("id") Integer idUrl) {
+    return ResponseEntity.ok().body(pilotoService.getPilotoId(idUrl));
 }
 
 @PostMapping("/guardar")
 public ResponseEntity<PilotoDTO> guardarPiloto(@RequestBody Piloto pi) {
     PilotoDTO pilotoRegistrado = pilotoService.guardarPiloto(pi);
-    return ResponseEntity.status(HttpStatus.CREATED).body(null)
+    return ResponseEntity.status(HttpStatus.CREATED).body(null);
 }
 
 @PutMapping("/actualizar")
-public PilotoDTO actualizarPiloto(@RequestBody Piloto pi) {
-    return pilotoService.actualizarPiloto(pi);
+public ResponseEntity<PilotoDTO> actualizarPiloto(@RequestBody Piloto pi) {
+    PilotoDTO pilotoActualizado = pilotoService.actualizarPiloto(pi);
+    return ResponseEntity.status(HttpStatus.ACCEPTED).body(pilotoActualizado);
 }
 
 @DeleteMapping("/{id}")
-public String eliminarPilotoId(@PathVariable("id") Integer id ) {
+public ResponseEntity<Void> eliminarPilotoId(@PathVariable("id") Integer id ) {
     pilotoService.eliminarPilotoId(id);
-    return "Piloto borrado";
+    return ResponseEntity.noContent().build();
 }
 
 

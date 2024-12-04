@@ -57,6 +57,7 @@ public PilotoDTO guardarPiloto(Piloto pi) {
 @Override
 public PilotoDTO actualizarPiloto(Piloto pi) {
     Piloto piDB = pilotoRepository.save(pi);
+    System.out.println("PILOOTOOOO: " + piDB);
     PilotoDTO piDTO = new PilotoDTO();
     piDTO.setNombre(piDB.getNombre());
     piDTO.setConduccion(piDB.getConduccion());
