@@ -33,7 +33,10 @@ IPilotoService pilotoService;
 
 @GetMapping("/numeroCarrerasPiloto/{id}")
 public ResponseEntity<EstadisticasPilotoDTO> getEstadisticasPiloto(@PathVariable("id") Integer idEp) {
-    return ;
+    if(pilotoService.getEstadisticasPiloto(idEp) == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+    return ResponseEntity.status(HttpStatus.FOUND).body(pilotoService.getEstadisticasPiloto(idEp));
 }
 
 @GetMapping("/all")

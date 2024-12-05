@@ -77,7 +77,16 @@ public void eliminarPilotoId(Integer id) {
 
 @Override
 public EstadisticasPilotoDTO getEstadisticasPiloto(Integer idEp) {
-    
+    Optional<Piloto> op = pilotoRepository.findById((long)idEp);
+    if(!op.isPresent()){
+        return null;
+    }
+    Piloto pilotobd = op.get();
+    EstadisticasPilotoDTO epdto = new EstadisticasPilotoDTO();
+    epdto.setNombrePiloto(pilotobd.getNombre());
+    Integer numeroCarreras = pilotobd.getListaCarreras().size();
+    epdto.setNumeroCarreras(numeroCarreras);
+    return epdto;
 }
 
 
